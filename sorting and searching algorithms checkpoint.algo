@@ -1,0 +1,35 @@
+ALGORITHM insertion_sort
+VAR
+    arr : ARRAY_OF INTEGER[100];
+    n, i, j, k, temp : INTEGER;
+BEGIN
+    // reading the size and the elements of the array
+    Write("type the size of the array (n<=100)");
+    REPEAT
+        Write("n = ");
+        Read(n);
+    UNTIL (n>0 AND n<=100)
+    Write("type the elements of the array");
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        Read(arr[i]);
+    END_FOR
+    // sorting the array in ascending order
+    i := 0; j := 0; k := 0; temp := 0;
+    FOR i FROM 1 TO n-1 STEP 1 DO
+        FOR j FROM 0 TO i STEP 1 DO
+            IF (arr[i]<arr[j]) THEN
+                temp := arr[i];
+                k := i;
+                WHILE (k>j) DO
+                    arr[k] := arr[k-1];
+                    k := k-1;
+                END_WHILE
+                arr[j] := temp;
+            END_IF
+        END_FOR
+    END_FOR
+END
+
+
+
+
